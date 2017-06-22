@@ -5,3 +5,8 @@
 .fondoVerde{
   background: lightgreen;
 }
+
+.activado{
+  font-weight: bold;
+  background: yellow;
+}

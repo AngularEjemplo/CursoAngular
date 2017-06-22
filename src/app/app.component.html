@@ -3,3 +3,16 @@
   <h1>
   {{title}}!!
   </h1>
+
+<!--Menú de navegación para hacer cambio entre componentes o páginas
+[routerlink] - redirecciona a la ruta que se le asigna
+[routerlinkActive] - llama una clase en CSS para alterar el estilo de el enlace seleccionado-->
+  <hr>
+    <nav>
+      <a [routerLink]="['/inicio']" [routerLinkActive]="['activado']">Home</a>
+      <a [routerLink]="['/fruta']" [routerLinkActive]="['activado']">Fruta</a>
+      <a [routerLink]="['/empleado']" [routerLinkActive]="['activado']">Empleado</a>
+      <a [routerLink]="['/contacto']" [routerLinkActive]="['activado']">Contacto</a>
+    </nav>
+  <hr>
+<router-outlet></router-outlet>
