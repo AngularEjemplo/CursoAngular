@@ -1,1 +1,16 @@
 <h2>{{titulo}}</h2>
+<br>
+
+<!--Prueba del funcionamiento del servicio ropa.service-->
+<input type="text" [(ngModel)]="prenda_guardar"><button (click)="guardarPrenda()">Añadir prenda</button>
+<p *ngIf="prenda_guardar">La prenda a guardar es: <strong>{{prenda_guardar}}</strong></p>
+
+<h3>Listado Prendas de Ropa</h3>
+
+<ul>
+  <li *ngFor="let prenda of listado_ropa; let i = index">
+      {{prenda}}
+      <button (click)="eliminarPrenda(i)">Eliminar</button>
+  </li>
+</ul>
+<!-- ________________________________________________________________________________________________________ -->
