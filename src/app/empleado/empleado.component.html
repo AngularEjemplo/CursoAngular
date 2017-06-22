@@ -1,0 +1,112 @@
+<h2 style="color:blue">{{titulo}}</h2>
+<hr>
+<strong>Empleado estrella:</strong>
+<br>
+<br>
+
+
+<div *ngIf="trabajador_externo==true">
+  <button (click)="cambiarExterno(false)">Mostrar empleado</button>
+  <ul>
+      <li>{{trabajadores[0].nombre}}</li>
+      <li>{{trabajadores[0].edad}}</li>
+      <li>{{trabajadores[0].cargo}}</li>
+      <li *ngIf="trabajadores[0].contratado== true">Está contratado</li>
+      <li *ngIf="trabajadores[0].contratado== false">No está contratado</li>
+  </ul>
+</div>
+
+<!--Uso de directiva ngIf, condicional haciendo uso de if-->
+<div *ngIf="trabajador_externo==false">
+  <button (click)="cambiarExterno(true)">Mostrar trabajador</button>
+  <ul>
+      <li>{{empleado.nombre}}</li>
+      <li>{{empleado.edad}}</li>
+      <li>{{empleado.cargo}}</li>
+      <li *ngIf="empleado.contratado== true">Está contratado</li>
+      <li *ngIf="empleado.contratado== false">No está contratado</li>
+
+  </ul>
+</div>
+<hr>
+
+<!--Uso de directiva ngFor, recorrido de un Array de empleados haciendo uso de for-->
+<h3>Listado de Empleados</h3>
+<ul>
+  <li *ngFor="let empleado of trabajadores; let i = index">
+    <strong>Empleado {{i+1}}:</strong>
+    <ul>
+      <br>
+      <li>{{empleado.nombre}}</li>
+      <li>{{empleado.edad}}</li>
+      <li>{{empleado.cargo}}</li>
+      <li *ngIf="empleado.contratado== true">Está contratado</li>
+      <li *ngIf="empleado.contratado== false">No está contratado</li>
+    </ul>
+    <br>
+  </li>
+</ul>
+<hr>
+
+<!--Uso de two way binding con el fin de que si se cambia una propiedad en la vista,
+también se modifique en el componente al cual pertenece de forma instantaneay transpartente-->
+<h3> Selector de Colores: </h3>
+  <button (click)="logColorSeleccionado()">Mostrar</button>
+<input type="text" [(ngModel)]="color_seleccionado"/>
+
+<!--Haciendo uso de ngStyle como atributo-->
+<!--Utilizando ngClass para dar estilo a un componente de HTML haciendo uso de clases en CSS
+[class.fondoAzul]="color_seleccionado == 'blue'"-->
+<!--Haciendo uso de ngClass directamente, se pueden modificar más propiedades dentro del componente
+Puedo tambien [ngClass] = "[[fondoazul, letragrande, fondoVerde]]"-->
+<pre [style.border]="color_seleccionado=='red' ? '5px solid black' : '1px solid pink'"
+     [ngClass]= "{
+       fondoAzul: color_seleccionado=='blue',
+       fondoVerde: color_seleccionado=='green'
+     }"
+>
+  <strong>Color elegido:</strong>
+  {{color_seleccionado}}
+</pre>
+<div [ngStyle]="{
+    'background':color_seleccionado,
+    'width':'200px',
+    'height':'200px',
+    'float':'right',
+    'margin-right':'36%'
+}">
+</div>
+
+<div style="clear:both">
+
+</div>
+
+<!--Uso de directiva ngSwitch, casos haciendo uso de switch-->
+<!-- Se usa con corchetes debido a que hace uso de una propiedad del modelo
+y por lo tanto se necesita del binding-->
+<h3>Colores Switch</h3>
+<ul [ngSwitch]="color">
+  <li *ngSwitchCase="'red'" [ngStyle]="{
+    'background':color,
+    'color': 'white',
+    'padding': '20px'
+   }">
+  Es de Color ROJO
+   </li>
+   <li *ngSwitchCase="'green'" [ngStyle]="{
+     'background':color,
+     'color': 'white',
+     'padding': '20px'
+    }">
+   Es de Color VERDE
+    </li>
+    <li *ngSwitchCase="'blue'" [ngStyle]="{
+      'background':color,
+      'color': 'white',
+      'padding': '20px'
+     }">
+    Es de Color AZUL
+    </li>
+</ul>
+
+<hr>
