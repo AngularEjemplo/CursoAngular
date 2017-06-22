@@ -1,7 +1,8 @@
 <h2>{{titulo}}</h2>
 <br>
-
+<hr>
 <!--Prueba del funcionamiento del servicio ropa.service-->
+<h2 style="color:blue">Pruebas con los servicios</h2>
 <input type="text" [(ngModel)]="prenda_guardar"><button (click)="guardarPrenda()">Añadir prenda</button>
 <p *ngIf="prenda_guardar">La prenda a guardar es: <strong>{{prenda_guardar}}</strong></p>
 
@@ -14,3 +15,13 @@
   </li>
 </ul>
 <!-- ________________________________________________________________________________________________________ -->
+
+<!--Pruebas con Pipelines tanto nativos como creando unos propios-->
+<hr>
+<h2 style="color:blue">Pruebas con los PipeLines</h2>
+<br>
+{{fecha|date:'dd/MM/yyyy'}} ----- {{fecha|date:'fullDate' | uppercase | lowercase}}
+<br>
+{{nombre | uppercase}}
+<br>
+{{5 | conversor:7}}

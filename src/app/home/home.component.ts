@@ -14,9 +14,14 @@ export class HomeComponent{
   public listado_ropa:Array<string>;
   public prenda_guardar:string;
 
+  public fecha;
+  public nombre = "JUAN lopez MarTinez";
+
   constructor(
     private _ropaService: RopaService
-  ){}
+  ){
+    this.fecha = new Date(2017,6-1,22);
+  }
 
   ngOnInit(){
     this.listado_ropa = this._ropaService.getRopa();
