@@ -46,3 +46,15 @@ Prueda de implementación de Formularios con Angular
     </li>
   </ul>
 </div>
+
+<hr>
+
+<h4>Listado de articulos</h4>
+<h6>Pruebas con el método GET y peticiones mediante AJAX</h6>
+<br>
+<ul *ngIf="articulos">
+  <li *ngFor="let articulo of articulos">
+      {{articulo.id}} - {{articulo.title}}
+  </li>
+  <span *ngIf="!articulos"> Cargando articulos...</span>
+</ul>
