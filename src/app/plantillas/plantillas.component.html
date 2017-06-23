@@ -1,0 +1,30 @@
+<h1>Prueba de plantillas ngTemplate</h1>
+
+<h3>{{titulo}}</h3>
+<hr>
+<!--Forma tradicional de hacer un IF y un ELSE con HTML-->
+<!--<div *ngIf="administrador">
+  <strong style="background:yellow;color:gray;">Eres el administrador de la WebApp</strong>
+</div>
+
+<div *ngIf="!administrador">
+  <strong style="background:red;color:blue;">No eres el administrador de la WebApp</strong>
+</div>-->
+
+<hr>
+<!--Forma nueva con angular para utilizar conicionales con ngTEMPLATE-->
+
+<div *ngIf="administrador; then Admin else noAdmin"></div>
+
+<!--ngTemplate-->
+
+<ng-template #Admin>
+    <button (click)="cambiarAdmin(false)">false</button>
+    <strong style="background:yellow;color:gray;">Eres el administrador de la WebApp</strong>
+</ng-template>
+
+
+<ng-template #noAdmin>
+    <button (click)="cambiarAdmin(true)">true</button>
+    <strong style="background:red;color:blue;">No eres el administrador de la WebApp</strong>
+</ng-template>

@@ -7,6 +7,8 @@ import { FrutaComponent } from './fruta/fruta.component';
 import { HomeComponent } from './home/home.component';
 import { ContactoComponent } from './contacto/contacto.component';
 import { CochesComponent} from './coches/coches.component';
+import { PlantillasComponent} from './plantillas/plantillas.component';
+
 //Rutas necesarias para el funcionamiento adecuado del enrutamiento
 //dentro de la aplicación, 1) por defecto, 2) route empleado, 3) route fruta, 4) route cuando ocurre un error
 const appRoutes: Routes = [
@@ -15,6 +17,7 @@ const appRoutes: Routes = [
   {path: 'fruta', component: FrutaComponent},
   {path: 'inicio', component: HomeComponent},
   {path: 'contacto', component: ContactoComponent},
+  {path: 'plantillas', component: PlantillasComponent},
   {path: 'coche', component: CochesComponent},
   {path: 'contacto/:page', component: ContactoComponent},
   {path: '**', component: HomeComponent}
